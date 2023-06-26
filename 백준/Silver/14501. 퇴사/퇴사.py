@@ -14,11 +14,8 @@ for i in range(1, N + 1):
     period = cases[i][0]
     pay = cases[i][1]
 
-    # 해당 일을 할 수 없는 경우
-    if i + period > N + 1:
-        continue
-
-    # 해당 일을 할 수 있는 경우
-    incomes_list[i + period] = max(incomes_list[i + period], incomes_list[i] + pay)
+    # 해당 일을 할 수 있는 경우에만
+    if i + period <= N + 1:
+        incomes_list[i + period] = max(incomes_list[i + period], incomes_list[i] + pay)
 
 print(max(incomes_list))
