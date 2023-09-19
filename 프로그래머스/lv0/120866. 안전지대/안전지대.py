@@ -11,18 +11,14 @@ def count_element(list):
 
 
 def solution(board):
-    
-    dx = [-1, -1, -1, 0, 0, 1, 1, 1]
-    dy = [-1, 0, 1, -1, 1, -1, 0, 1]
-    
     for row in range(len(board)):
         for col in range(len(board[row])):
             
             # 해당 칸이 지뢰일 경우
             if board[row][col] == 1:
-                for i in range(8):
-                    new_row = row + dx[i]
-                    new_col = col + dy[i]
+                for dx, dy in [(i, j) for i in [-1, 0, 1] for j in [-1, 0, 1]]:
+                    new_row = row + dx
+                    new_col = col + dy
                     
                     # 유효한 좌표 확인
                     if 0 <= new_row < len(board) and 0 <= new_col < len(board[0]):
