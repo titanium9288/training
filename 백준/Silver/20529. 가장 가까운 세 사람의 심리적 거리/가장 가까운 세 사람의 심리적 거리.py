@@ -21,8 +21,8 @@ def make_distance_pair():
 distances = make_distance_pair()
 
 for _ in range(int(input())):
-    N = int(input())
-    students = list(input().split())
+    N = int(sys.stdin.readline())
+    students = list(sys.stdin.readline().split())
 
     # 각 유형의 수를 최대 3으로 제한
     student_dict = {mbti: min(students.count(mbti), 3) for mbti in set(students)}
@@ -32,4 +32,4 @@ for _ in range(int(input())):
     for trio in itertools.combinations(students, 3):
         min_distance = min(min_distance, distances[tuple(sorted(trio))])
 
-    print(min_distance)
+    sys.stdout.write(str(min_distance) + '\n')
