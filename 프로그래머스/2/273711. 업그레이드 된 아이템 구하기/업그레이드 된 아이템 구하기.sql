@@ -1,0 +1,16 @@
+-- 코드를 작성해주세요
+SELECT 
+    i.ITEM_ID, 
+    i.ITEM_NAME, 
+    i.RARITY
+FROM 
+    ITEM_TREE t
+JOIN 
+    ITEM_INFO i
+    ON t.ITEM_ID = i.ITEM_ID
+JOIN 
+    ITEM_INFO p
+    ON t.PARENT_ITEM_ID = p.ITEM_ID
+WHERE p.RARITY like "RARE"
+ORDER BY i.ITEM_ID DESC
+
