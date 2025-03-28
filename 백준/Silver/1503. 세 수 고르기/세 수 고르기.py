@@ -5,8 +5,11 @@ candidates = [i for i in range(1, 1002) if i not in S]
 min_value = float("inf")
 
 for x in candidates:
+    if x > N + min_value:
+        break
+
     for y in candidates:
-        if y < x:
+        if y > x:
             continue
 
         xy = x * y
@@ -14,7 +17,7 @@ for x in candidates:
             break
 
         for z in candidates:
-            if z < y:
+            if z > y:
                 continue
 
             xyz = xy * z
