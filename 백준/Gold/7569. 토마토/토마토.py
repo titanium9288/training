@@ -3,16 +3,6 @@ import sys
 
 input = sys.stdin.readline
 
-
-# 구조적으로 z, x, y 순서로 접근하는게 짜증나서 get, set 만듦
-def get_tomato(x, y, z):
-    return tomatoes[z][y][x]
-
-
-def set_tomato(x, y, z, n):
-    tomatoes[z][y][x] = n
-
-
 M, N, H = map(int, input().split())
 
 tomatoes = []
@@ -26,7 +16,7 @@ queue = deque()
 for z in range(H):
     for y in range(N):
         for x in range(M):
-            if get_tomato(x, y, z) == 1:
+            if tomatoes[z][y][x] == 1:
                 queue.append((x, y, z))
 
 max_day = 1
@@ -50,11 +40,11 @@ while queue:
         if not (0 <= nx < M) or not (0 <= ny < N) or not (0 <= nz < H):
             continue
 
-        if get_tomato(nx, ny, nz) != 0:
+        if tomatoes[nz][ny][nx] != 0:
             continue
 
-        set_tomato(nx, ny, nz, get_tomato(x, y, z) + 1)
-        max_day = max(max_day, get_tomato(nx, ny, nz))
+        tomatoes[nz][ny][nx] = tomatoes[z][y][x] + 1
+        max_day = max(max_day, tomatoes[nz][ny][nx])
         queue.append((nx, ny, nz))
 
 
