@@ -20,9 +20,12 @@ def abs_heap(x):
 N = int(input())
 queue = []
 
+answer = []
 for _ in range(N):
     x = int(input())
 
     val = abs_heap(x)
     if val is not None:
-        print(val)
+        answer.append(str(val))
+
+print("\n".join(answer))
