@@ -1,9 +1,9 @@
 def backtrack(paths, depth):
 
     if depth == N + 1:
-        formular = "".join(paths)
-        if eval(formular.replace(" ", "")) == 0:
-            able_formular.append(formular)
+        s = "".join(paths)
+        if eval(s.replace(" ", "")) == 0:
+            valid_expressions.append(s)
         return
 
     for op in (" ", "+", "-"):
@@ -13,8 +13,8 @@ def backtrack(paths, depth):
 T = int(input())
 for _ in range(T):
     N = int(input())
-    able_formular = []
+    valid_expressions = []
 
     backtrack(["1"], 2)
-    print("\n".join(able_formular))
+    print("\n".join(valid_expressions))
     print()
