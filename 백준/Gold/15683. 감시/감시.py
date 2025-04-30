@@ -1,3 +1,8 @@
+import sys
+
+input = sys.stdin.readline
+
+
 # CCTV 타입과 방향이 들어오면, 시야 범위를 정한다
 def find_direction(cctv_type, direction):
     valid_directions = []
